@@ -157,6 +157,74 @@ class Setting extends BaseModel {
 				label: () => _('WebDAV password'),
 				secure: true,
 			},
+			'sync.8.protocol': {
+				value: '',
+				type: Setting.TYPE_STRING,
+				section: 'sync',
+				show: settings => {
+					return settings['sync.target'] == SyncTargetRegistry.nameToId('ftp');
+				},
+				public: true,
+				label: () => _('Protocol'),
+				isEnum: true,
+				options: () => {
+					return {
+						'ftp': _('ftp'),
+						'sftp': _('sftp'),
+					};
+				},
+			},
+			'sync.8.host': {
+				value: '',
+				type: Setting.TYPE_STRING,
+				section: 'sync',
+				show: settings => {
+					return settings['sync.target'] == SyncTargetRegistry.nameToId('ftp');
+				},
+				public: true,
+				label: () => _('Host'),
+			},
+			'sync.8.port': {
+				value: '22',
+				type: Setting.TYPE_INT,
+				section: 'sync',
+				show: settings => {
+					return settings['sync.target'] == SyncTargetRegistry.nameToId('ftp');
+				},
+				public: true,
+				label: () => _('Port'),
+			},
+			'sync.8.username': {
+				value: '',
+				type: Setting.TYPE_STRING,
+				section: 'sync',
+				show: settings => {
+					return settings['sync.target'] == SyncTargetRegistry.nameToId('ftp');
+				},
+				public: true,
+				label: () => _('Username'),
+			},
+			'sync.8.password': {
+				value: '',
+				type: Setting.TYPE_STRING,
+				section: 'sync',
+				show: settings => {
+					return settings['sync.target'] == SyncTargetRegistry.nameToId('ftp');
+				},
+				public: true,
+				label: () => _('Password'),
+				secure: true,
+			},
+			'sync.8.path': {
+				value: '/',
+				type: Setting.TYPE_STRING,
+				section: 'sync',
+				show: settings => {
+					return settings['sync.target'] == SyncTargetRegistry.nameToId('ftp');
+				},
+				public: true,
+				label: () => _('Target path'),
+			},
 
 			'sync.3.auth': { value: '', type: Setting.TYPE_STRING, public: false },
 			'sync.4.auth': { value: '', type: Setting.TYPE_STRING, public: false },
